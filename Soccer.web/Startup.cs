@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Soccer.web.Data;
+using Soccer.Web.Helpers;
 
 namespace Soccer.web
 {
@@ -34,7 +35,8 @@ namespace Soccer.web
             });
 
             //close
-
+            services.AddScoped<IImageHelper, ImageHelper>();
+            services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
